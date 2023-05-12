@@ -1,0 +1,57 @@
+:root {
+    --dist: 1;
+  }
+  .animate-hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: scale(2.3);
+    transition: all 0.5s ease-in-out 0.5s;
+  }
+  
+  .animate-hidden-text {
+    transition: all 0.5s ease-in-out 1.5s;
+  }
+  
+  .animate-hidden-img {
+    transform: scale(1) ;
+  }
+  .slide {
+    transform: scale(1);
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: calc(200ms * (var(--order) + 1));
+  }
+  
+  .slide-quick {
+    transition-delay: calc(150ms * (var(--order) + 1));
+  }
+  
+  .slide-left {
+    transform: translateX(calc(-100% * var(--dist)));
+  }
+  
+  .slide-right {
+    transform: translateX(calc(100% * var(--dist)));
+  }
+  
+  .slide-up {
+    transform: translateY(calc(-100% * var(--dist)));
+  }
+  .slide-down {
+    transform: translateY(calc(100% * var(--dist)));
+  }
+  
+  .show {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1) translateX(0) translateY(0);
+  }
+  
+  @media(prefers-reduced-motion) {
+    .animate-hidden,
+    .slide,
+    .animate-hidden-text { 
+      transition: none;
+    }
+  }
